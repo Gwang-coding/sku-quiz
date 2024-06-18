@@ -75,7 +75,7 @@ const QuizForm = () => {
 
     return (
         <Container>
-            <Img className="create" src="/img/group133.png"></Img>
+            <Img className="create" src="/img/Group133.png"></Img>
 
             <Label>닉네임을 입력하세요:</Label>
             <SearchInput type="text" value={nickname} onChange={(e) => setNickname(e.target.value)} />
@@ -102,8 +102,8 @@ const QuizForm = () => {
                 </div>
             ))}
             <Btnbox>
-                <Img onClick={handleSubmit} className="btn" src="/img/group113.png"></Img>
-                <Img onClick={() => router.push('/')} className="btn" src="/img/group112.png"></Img>
+                <Img onClick={handleSubmit} className="btn" src="/img/Group113.png"></Img>
+                <Img onClick={() => router.push('/')} className="btn" src="/img/Group112.png"></Img>
             </Btnbox>
         </Container>
     );
@@ -119,7 +119,7 @@ const Container = styled.div`
     align-items: center;
     padding: 20px;
     color: white; /* 텍스트 색상 */
-    background-image: url('/img/group52.png'); /* 배경 이미지 */
+    background-image: url('/img/Group52.png'); /* 배경 이미지 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
     background-size: 90% 90%; /* 화면 가득 차게 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
