@@ -124,7 +124,7 @@ const Home = () => {
 
     return (
         <Container>
-            <Img className="aboutme" src="img/group 10.png"></Img>
+            <Img className="aboutme" src="img/group10.png"></Img>
             <Img className="test" src="img/testyour.png"></Img>
             <Img onClick={handleCreate} className="makequiz" src="img/group 36.png"></Img>
 
@@ -185,7 +185,7 @@ const Container = styled.div`
     align-items: center;
     padding: 20px;
     color: white; /* 텍스트 색상 */
-    background-image: url('/img/Group 52.png'); /* 배경 이미지 */
+    background-image: url('/img/group52.png'); /* 배경 이미지 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
     background-size: 90% 90%; /* 화면 가득 차게 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */

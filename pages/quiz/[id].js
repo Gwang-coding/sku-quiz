@@ -105,8 +105,8 @@ export default function QuizPage() {
                 </Question>
             ))}
             <Btnbox>
-                <Img onClick={handleSubmit} className="btn" src="/img/group 110.png"></Img>
-                <Img onClick={() => router.push('/')} className="btn" src="/img/group 112.png"></Img>
+                <Img onClick={handleSubmit} className="btn" src="/img/group110.png"></Img>
+                <Img onClick={() => router.push('/')} className="btn" src="/img/group112.png"></Img>
             </Btnbox>
         </Container>
     );
@@ -120,7 +120,7 @@ const Container = styled.div`
     align-items: center;
     padding: 20px;
     color: white; /* 텍스트 색상 */
-    background-image: url('/img/Group 52.png'); /* 배경 이미지 */
+    background-image: url('/img/group52.png'); /* 배경 이미지 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
     background-size: 90% 90%; /* 화면 가득 차게 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */

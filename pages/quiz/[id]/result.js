@@ -97,8 +97,8 @@ export default function ResultPage() {
                 </PageButton>
             </PageNavigation>
             <Btnbox>
-                <Img onClick={() => router.push(`/quiz/${id}`)} className="btn" src="/img/group 333.png"></Img>
-                <Img onClick={() => router.push('/')} className="btn" src="/img/group 444.png"></Img>
+                <Img onClick={() => router.push(`/quiz/${id}`)} className="btn" src="/img/group333.png"></Img>
+                <Img onClick={() => router.push('/')} className="btn" src="/img/group444.png"></Img>
             </Btnbox>
         </Container>
     );
@@ -112,7 +112,7 @@ const Container = styled.div`
     align-items: center;
     padding: 20px;
     color: #402f5c; /* 텍스트 색상 */
-    background-image: url('/img/Group 52.png'); /* 배경 이미지 */
+    background-image: url('/img/group52.png'); /* 배경 이미지 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
     background-size: 90% 90%; /* 화면 가득 차게 */
     background-repeat: no-repeat; /* 이미지 반복 없애기 */
