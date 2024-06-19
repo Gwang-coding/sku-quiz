@@ -14,6 +14,39 @@ const Home = () => {
     const [passwordInput, setPasswordInput] = useState('');
     const [selectedUserId, setSelectedUserId] = useState(null);
 
+    useEffect(() => {
+        // SDK 초기화
+        if (typeof window !== 'undefined' && window.Kakao) {
+            if (!window.Kakao.isInitialized()) {
+                window.Kakao.init('4a02a56197ccbe188352f00106f237f5'); // 'YOUR_APP_KEY'를 실제 카카오 앱 키로 대체하세요.
+            }
+        }
+    }, []);
+    const shareKakao = () => {
+        if (window.Kakao) {
+            window.Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: '친구와 우정테스트',
+                    description: '친구의 퀴즈를 풀고 우정도를 공유해요',
+                    imageUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com//img/mainimg.png',
+                    link: {
+                        mobileWebUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                        webUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                    },
+                },
+                buttons: [
+                    {
+                        title: '친구 우정도 테스트',
+                        link: {
+                            mobileWebUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                            webUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                        },
+                    },
+                ],
+            });
+        }
+    };
     // 퀴즈 데이터 가져오기
     const fetchQuizzes = async () => {
         try {
@@ -130,11 +163,13 @@ const Home = () => {
                     </Box>
                 ))}
             </QuizContainer>
+
             <PageNavigation>
                 <PageArrow onClick={() => setPage(Math.max(page - 1, 1))}>&lt;</PageArrow>
                 {generatePageNumbers()}
                 <PageArrow onClick={() => setPage(Math.min(page + 1, totalPages))}>&gt;</PageArrow>
             </PageNavigation>
+            <Img onClick={shareKakao} src="img/kakaoicons.png" className="kakao" />
 
             {showModal && (
                 <ModalBackground>
@@ -332,5 +367,11 @@ const Img = styled.img`
     &.trash {
         width: 25px;
         margin-left: 5px;
+    }
+    &.kakao {
+        margin-top: 20px;
+        &:hover {
+            cursor: pointer;
+        }
     }
 `;

@@ -11,7 +11,39 @@ export default function ResultPage() {
     const [userScores, setUserScores] = useState([]);
     const [currentPage, setCurrentPage] = useState(1);
     const [itemsPerPage] = useState(6);
-
+    useEffect(() => {
+        // SDK 초기화
+        if (typeof window !== 'undefined' && window.Kakao) {
+            if (!window.Kakao.isInitialized()) {
+                window.Kakao.init('4a02a56197ccbe188352f00106f237f5'); // 'YOUR_APP_KEY'를 실제 카카오 앱 키로 대체하세요.
+            }
+        }
+    }, []);
+    const shareKakao = () => {
+        if (window.Kakao) {
+            window.Kakao.Link.sendDefault({
+                objectType: 'feed',
+                content: {
+                    title: `우정도 퀴즈 결과`,
+                    description: `${nickname}의 우정도는 ${score}점입니다.`,
+                    imageUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com//img/mainimg.png',
+                    link: {
+                        mobileWebUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                        webUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                    },
+                },
+                buttons: [
+                    {
+                        title: '친구 우정도 테스트',
+                        link: {
+                            mobileWebUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                            webUrl: 'https://main.d2rq3gbd5k8u3d.amplifyapp.com/',
+                        },
+                    },
+                ],
+            });
+        }
+    };
     useEffect(() => {
         const fetchUserScores = async () => {
             try {
@@ -100,6 +132,7 @@ export default function ResultPage() {
                 <Img onClick={() => router.push(`/quiz/${id}`)} className="btn" src="/img/Group333.png"></Img>
                 <Img onClick={() => router.push('/')} className="btn" src="/img/Group444.png"></Img>
             </Btnbox>
+            <Img onClick={shareKakao} src="../../img/kakaoicons.png" className="kakao" />
         </Container>
     );
 }
@@ -170,6 +203,12 @@ const PageButton = styled.div`
 const Img = styled.img`
     &.btn {
         width: 200px;
+        &:hover {
+            cursor: pointer;
+        }
+    }
+    &.kakao {
+        margin-top: 20px;
         &:hover {
             cursor: pointer;
         }

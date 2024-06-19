@@ -1,4 +1,4 @@
-import Document from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
 
 class MyDocument extends Document {
@@ -25,6 +25,19 @@ class MyDocument extends Document {
         } finally {
             sheet.seal();
         }
+    }
+    render() {
+        return (
+            <Html>
+                <Head>
+                    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
+                </Head>
+                <body>
+                    <Main />
+                    <NextScript />
+                </body>
+            </Html>
+        );
     }
 }
 
