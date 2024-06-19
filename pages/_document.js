@@ -1,5 +1,6 @@
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { ServerStyleSheet } from 'styled-components';
+import Script from 'next/script'; // next/script 모듈을 사용
 
 class MyDocument extends Document {
     static async getInitialProps(ctx) {
@@ -29,12 +30,11 @@ class MyDocument extends Document {
     render() {
         return (
             <Html>
-                <Head>
-                    <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script>
-                </Head>
+                <Head>{/* <script src="https://developers.kakao.com/sdk/js/kakao.min.js"></script> 을 아래로 변경 */}</Head>
                 <body>
                     <Main />
                     <NextScript />
+                    <Script src="https://developers.kakao.com/sdk/js/kakao.min.js" strategy="beforeInteractive" />
                 </body>
             </Html>
         );
