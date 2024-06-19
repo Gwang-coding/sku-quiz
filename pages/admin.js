@@ -126,7 +126,7 @@ const Home = () => {
         <Container>
             <Img className="aboutme" src="img/Group10.png"></Img>
             <Img className="test" src="img/testyour.png"></Img>
-            <Img onClick={handleCreate} className="makequiz" src="img/Group 36.png"></Img>
+            <Img onClick={handleCreate} className="makequiz" src="img/Group36.png"></Img>
 
             <SearchContainer>
                 <SearchInput type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="친구 이름을 검색하세요" />
